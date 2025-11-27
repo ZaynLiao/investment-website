@@ -54,36 +54,109 @@
         align-items: center;
         justify-content: center;
         padding: 40px 20px;
-        background:
-            radial-gradient(600px 400px at 80% -10%, rgba(212, 175, 55, 0.10), transparent 40%),
-            radial-gradient(400px 300px at -10% 30%, rgba(212, 175, 55, 0.06), transparent 45%),
-            #0a0a0a;
+        background: linear-gradient(135deg, #0d0d0d 0%, #0a0a0a 100%);
+        position: relative;
+    }
+
+    .auth::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: repeating-linear-gradient(45deg,
+                transparent,
+                transparent 12px,
+                rgba(212, 175, 55, 0.06) 12px,
+                rgba(212, 175, 55, 0.06) 13px);
+        pointer-events: none;
     }
 
     .auth-card {
         width: 100%;
         max-width: 480px;
-        background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
-        border: 2px solid rgba(212, 175, 55, 0.3);
-        border-radius: 16px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        border-radius: 20px;
         padding: 32px;
-        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.7),
-            0 0 80px rgba(212, 175, 55, 0.08);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(212, 175, 55, 0.15),
+            0 0 20px rgba(212, 175, 55, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .auth-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.015) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.015) 0%, transparent 50%);
+        pointer-events: none;
+        border-radius: 20px;
+        z-index: 1;
+    }
+
+    .auth-card>* {
+        position: relative;
+        z-index: 2;
+    }
+
+    .auth-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.3), transparent);
+        animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+        0% {
+            left: -100%;
+        }
+
+        100% {
+            left: 200%;
+        }
     }
 
     .card-header {
         text-align: center;
-        margin-bottom: 28px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        margin: -32px -32px 28px;
+        padding: 28px 32px 24px;
+        background: linear-gradient(180deg, rgba(212, 175, 55, 0.06) 0%, transparent 100%);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+        border-radius: 18px 18px 0 0;
+        position: relative;
+    }
+
+    .card-header::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+        filter: blur(1px);
     }
 
     .card-header h1 {
-        font-size: 1.4rem;
+        font-size: 2rem;
         color: #d4af37;
         font-weight: 700;
         text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-        margin-bottom: 8px;
+        margin-bottom: 12px;
+        letter-spacing: 1.5px;
     }
 
     .card-header p {
@@ -147,20 +220,23 @@
 
     .primary-btn {
         width: 100%;
-        padding: 12px 16px;
-        border-radius: 10px;
-        border: 1px solid #d4af37;
-        background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+        padding: 14px;
+        border-radius: 50px;
+        border: 2px solid #d4af37;
+        background: linear-gradient(135deg, #d4af37 0%, #b8982d 100%);
         color: #0a0a0a;
-        font-weight: 800;
+        font-size: 1rem;
+        font-weight: 700;
         cursor: pointer;
-        transition: transform 0.1s ease, box-shadow 0.2s ease;
-        box-shadow: 0 0 14px rgba(212, 175, 55, 0.3);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        letter-spacing: 1px;
     }
 
     .primary-btn:hover {
-        transform: translateY(-1px);
-        box-shadow: 0 6px 24px rgba(212, 175, 55, 0.45);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        background: linear-gradient(135deg, #f0c75e 0%, #d4af37 100%);
     }
 
     .alt-link {

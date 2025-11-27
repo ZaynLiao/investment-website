@@ -195,7 +195,7 @@
                 </div>
             </div>
             <button class="toggle-more" @click="showMoreNews = !showMoreNews">{{ showMoreNews ? '收合' : '顯示更多'
-            }}</button>
+                }}</button>
         </div>
 
         <!-- Consolidated Performance Panel -->
@@ -589,7 +589,7 @@
                 enabled: true,
                 backgroundColor: 'rgba(0, 0, 0, 0.8)',
                 titleColor: color,
-                bodyColor: '#e5e5e5',
+                bodyColor: '#c8c8c8',
                 borderColor: color,
                 borderWidth: 1
             }
@@ -597,7 +597,7 @@
         scales: {
             x: {
                 ticks: {
-                    color: '#b0b0b0',
+                    color: '#9b9b9b',
                     font: { size: 10 },
                     maxRotation: 0
                 },
@@ -609,7 +609,7 @@
             y: {
                 beginAtZero: false,
                 ticks: {
-                    color: '#b0b0b0',
+                    color: '#9b9b9b',
                     font: { size: 10 },
                     callback: function (value) {
                         return value.toLocaleString()
@@ -853,27 +853,39 @@
     }
 
     .market-header {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-        color: #e5e5e5;
+        background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+        color: #c8c8c8;
         padding: 80px 50px;
         text-align: center;
-        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-        box-shadow: 0 10px 50px rgba(212, 175, 55, 0.1);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .market-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.04) 48%, rgba(212, 175, 55, 0.04) 52%, transparent 52%),
+            linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.04) 48%, rgba(212, 175, 55, 0.04) 52%, transparent 52%);
+        background-size: 35px 35px;
+        pointer-events: none;
     }
 
     .market-header h1 {
-        font-size: 1.25rem;
-        margin-bottom: 15px;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
         color: #d4af37;
         text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         font-weight: 700;
-        line-height: 1.4;
-        letter-spacing: 1px;
+        line-height: 1.3;
+        letter-spacing: 2px;
     }
 
     .market-header p {
         font-size: 1rem;
-        color: #b0b0b0;
+        color: #9b9b9b;
         line-height: 1.8;
         letter-spacing: 0.5px;
     }
@@ -887,6 +899,8 @@
         margin: 0;
         padding: 60px 50px;
         border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+        background: #0a0a0a;
+        position: relative;
     }
 
     .chart-section .section-header {
@@ -925,7 +939,7 @@
 
     .chart-card-header h3 {
         font-size: 1.25rem;
-        color: #e5e5e5;
+        color: #c8c8c8;
         font-weight: 600;
         margin: 0;
     }
@@ -1036,7 +1050,7 @@
         display: block;
         font-size: 1.25rem;
         font-weight: 700;
-        color: #e5e5e5;
+        color: #c8c8c8;
         margin-bottom: 8px;
     }
 
@@ -1075,7 +1089,7 @@
         padding: 6px 24px;
         border: 1px solid rgba(212, 175, 55, 0.3);
         background: transparent;
-        color: #b0b0b0;
+        color: #9b9b9b;
         border-radius: 15px;
         cursor: pointer;
         font-size: 0.85rem;
@@ -1179,7 +1193,7 @@
     .index-value {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .index-change {
@@ -1234,7 +1248,7 @@
 
     .flow-label {
         font-size: 1rem;
-        color: #b0b0b0;
+        color: #9b9b9b;
         margin-bottom: 6px;
     }
 
@@ -1371,7 +1385,7 @@
 
     .macro-card p {
         font-size: 1rem;
-        color: #b0b0b0;
+        color: #9b9b9b;
         line-height: 1.6;
     }
 
@@ -1484,7 +1498,7 @@
     .news-card h3 {
         font-size: 1.25rem;
         margin-bottom: 10px;
-        color: #e5e5e5;
+        color: #c8c8c8;
         line-height: 1.6;
         font-weight: 600;
         letter-spacing: 0.3px;
@@ -1534,7 +1548,7 @@
         padding: 10px 25px;
         border: 1px solid rgba(212, 175, 55, 0.3);
         background: transparent;
-        color: #b0b0b0;
+        color: #9b9b9b;
         border-radius: 20px;
         cursor: pointer;
         font-size: 0.9rem;
@@ -1598,7 +1612,7 @@
     .stock-name {
         font-size: 1rem;
         font-weight: 600;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .stock-code {
@@ -1616,7 +1630,7 @@
     .stock-price .price {
         font-size: 1rem;
         font-weight: 600;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .stock-price .change {
@@ -1675,7 +1689,7 @@
         font-size: 1.8rem;
         font-weight: 700;
         margin-bottom: 5px;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .stat-value.positive {
@@ -1736,7 +1750,7 @@
 
     .volume-header h3 {
         font-size: 1.25rem;
-        color: #e5e5e5;
+        color: #c8c8c8;
         font-weight: 600;
         margin: 0;
     }
@@ -1794,7 +1808,7 @@
     .vol-name {
         font-size: 1rem;
         font-weight: 600;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .vol-code {
@@ -1875,7 +1889,7 @@
 
     .insight-list li {
         padding: 12px 0 12px 20px;
-        color: #b0b0b0;
+        color: #9b9b9b;
         font-size: 1rem;
         line-height: 1.7;
         border-left: 3px solid rgba(212, 175, 55, 0.3);
@@ -1898,7 +1912,7 @@
 
     .insight-list li:hover {
         border-left-color: #d4af37;
-        color: #e5e5e5;
+        color: #c8c8c8;
         padding-left: 25px;
         background: rgba(212, 175, 55, 0.05);
         border-radius: 0 8px 8px 0;
@@ -1933,21 +1947,67 @@
     }
 
     .perf-block {
-        background: #111;
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        border-radius: 12px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        border-radius: 16px;
         padding: 20px;
         display: flex;
         flex-direction: column;
         min-width: 0;
         transition: all 0.3s ease;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(212, 175, 55, 0.15),
+            0 0 20px rgba(212, 175, 55, 0.1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .perf-block::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.015) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.015) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .perf-block>* {
+        position: relative;
+        z-index: 2;
+    }
+
+    .perf-block::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
     }
 
     .perf-block:hover {
-        background: #151515;
-        border-color: rgba(212, 175, 55, 0.4);
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(212, 175, 55, 0.1);
+        border-color: rgba(240, 199, 94, 0.6);
+        transform: translateY(-5px);
+        box-shadow:
+            0 12px 48px rgba(0, 0, 0, 0.8),
+            inset 0 1px 0 rgba(212, 175, 55, 0.25),
+            0 0 30px rgba(212, 175, 55, 0.2);
+    }
+
+    .perf-block:hover::after {
+        opacity: 1;
     }
 
     .perf-head {
@@ -1962,7 +2022,7 @@
     .perf-head h3 {
         font-size: 1.25rem;
         font-weight: 600;
-        color: #e5e5e5;
+        color: #c8c8c8;
         margin: 0;
         letter-spacing: 0.5px;
     }
@@ -2021,7 +2081,7 @@
     }
 
     .perf-name {
-        color: #e5e5e5;
+        color: #c8c8c8;
         font-weight: 600;
         display: flex;
         flex-direction: column;
@@ -2083,12 +2143,12 @@
     }
 
     .stat-line span {
-        color: #b0b0b0;
+        color: #9b9b9b;
         font-weight: 500;
     }
 
     .stat-line strong {
-        color: #e5e5e5;
+        color: #c8c8c8;
         font-weight: 700;
         font-size: 1.05rem;
     }
@@ -2155,7 +2215,7 @@
     }
 
     .mini-label {
-        color: #b0b0b0;
+        color: #9b9b9b;
         font-weight: 500;
     }
 
@@ -2167,7 +2227,7 @@
     }
 
     .mini-name {
-        color: #e5e5e5;
+        color: #c8c8c8;
         font-weight: 600;
         line-height: 1.2;
     }
@@ -2314,27 +2374,54 @@
     }
 
     @media (max-width: 480px) {
-        .market-header { padding: 50px 20px; }
+        .market-header {
+            padding: 50px 20px;
+        }
+
         .market-overview,
         .chart-section,
         .market-news,
         .market-performance,
-        .market-insights { padding: 30px 20px; }
+        .market-insights {
+            padding: 30px 20px;
+        }
 
-        .charts-grid { gap: 20px; }
-        .chart-placeholder { height: 180px; min-height: 180px; }
+        .charts-grid {
+            gap: 20px;
+        }
 
-        .section-block { padding: 0 20px 30px; }
-        .section-header { margin: 0 auto 20px; }
+        .chart-placeholder {
+            height: 180px;
+            min-height: 180px;
+        }
+
+        .section-block {
+            padding: 0 20px 30px;
+        }
+
+        .section-header {
+            margin: 0 auto 20px;
+        }
 
         .indices-grid,
         .flow-grid,
         .macro-grid,
         .news-grid,
-        .insights-grid { gap: 20px; }
+        .insights-grid {
+            gap: 20px;
+        }
 
-        .perf-grid { gap: 20px; }
-        .perf-row { grid-template-columns: 26px 1fr 70px 70px; font-size: 0.9rem; }
-        .mini-row { font-size: 0.84rem; }
+        .perf-grid {
+            gap: 20px;
+        }
+
+        .perf-row {
+            grid-template-columns: 26px 1fr 70px 70px;
+            font-size: 0.9rem;
+        }
+
+        .mini-row {
+            font-size: 0.84rem;
+        }
     }
 </style>

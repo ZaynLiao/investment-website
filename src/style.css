@@ -22,7 +22,10 @@ html {
   font-size: 16px;
 }
 
-img, canvas, svg, video {
+img,
+canvas,
+svg,
+video {
   max-width: 100%;
   height: auto;
   display: block;
@@ -84,7 +87,13 @@ button:focus-visible {
 
 /* Small phones fine-tuning */
 @media (max-width: 480px) {
-  html { font-size: 15px; }
-  h1 { font-size: 2rem; }
-  .card { padding: 1.25em; }
+  html {
+    font-size: 15px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  .card {
+    padding: 1.25em;
+  }
 }

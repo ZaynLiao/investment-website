@@ -201,22 +201,34 @@
     }
 
     .products-header {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-        color: #e5e5e5;
+        background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+        color: #c8c8c8;
         padding: 80px 50px;
         text-align: center;
-        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-        box-shadow: 0 10px 50px rgba(212, 175, 55, 0.1);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .products-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.04) 48%, rgba(212, 175, 55, 0.04) 52%, transparent 52%),
+            linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.04) 48%, rgba(212, 175, 55, 0.04) 52%, transparent 52%);
+        background-size: 35px 35px;
+        pointer-events: none;
     }
 
     .products-header h1 {
-        font-size: 1.25rem;
-        margin-bottom: 15px;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
         color: #d4af37;
         text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         font-weight: 700;
-        line-height: 1.4;
-        letter-spacing: 1px;
+        line-height: 1.3;
+        letter-spacing: 2px;
     }
 
     .products-header p {
@@ -230,6 +242,8 @@
         width: 85%;
         margin: 0 auto;
         padding: 60px 50px;
+        background: #0a0a0a;
+        position: relative;
     }
 
     .filter-section {
@@ -316,12 +330,55 @@
     }
 
     .product-item {
-        background: #111;
-        border-radius: 12px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+        border-radius: 16px;
         padding: 24px;
-        border: 1px solid rgba(212, 175, 55, 0.2);
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        border: 1px solid rgba(212, 175, 55, 0.4);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(212, 175, 55, 0.15),
+            0 0 20px rgba(212, 175, 55, 0.1);
         transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.015) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.015) 0%, transparent 50%);
+        pointer-events: none;
+        border-radius: 16px;
+        z-index: 1;
+    }
+
+    .product-item>* {
+        position: relative;
+        z-index: 2;
+    }
+
+    .product-item::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 60%);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .product-item:hover::before {
+        opacity: 1;
     }
 
     .product-item:hover {
@@ -647,16 +704,49 @@
     }
 
     @media (max-width: 480px) {
-        .filter-container { width: 100%; padding: 20px; gap: 12px; }
-        .filters { gap: 8px; }
-        .products-content { width: 100%; padding: 30px 20px; }
-        .products-container { padding: 20px 0 40px; }
-        .products-grid { gap: 18px; }
-        .product-item { padding: 18px; }
-        .product-header h3 { font-size: 1.1rem; }
-        .product-price .price { font-size: 1.1rem; }
-        .product-price .change { font-size: 0.9rem; }
-        .invest-btn { padding: 10px; font-size: 0.9rem; }
+        .filter-container {
+            width: 100%;
+            padding: 20px;
+            gap: 12px;
+        }
+
+        .filters {
+            gap: 8px;
+        }
+
+        .products-content {
+            width: 100%;
+            padding: 30px 20px;
+        }
+
+        .products-container {
+            padding: 20px 0 40px;
+        }
+
+        .products-grid {
+            gap: 18px;
+        }
+
+        .product-item {
+            padding: 18px;
+        }
+
+        .product-header h3 {
+            font-size: 1.1rem;
+        }
+
+        .product-price .price {
+            font-size: 1.1rem;
+        }
+
+        .product-price .change {
+            font-size: 0.9rem;
+        }
+
+        .invest-btn {
+            padding: 10px;
+            font-size: 0.9rem;
+        }
 
         .category-highlights,
         .bundle-section,

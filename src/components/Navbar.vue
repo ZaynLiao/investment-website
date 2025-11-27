@@ -18,7 +18,7 @@
                 <router-link to="/products" class="nav-link" @click="closeMenu">投資產品</router-link>
                 <router-link to="/market" class="nav-link" @click="closeMenu">市場分析</router-link>
                 <router-link to="/dashboard" class="nav-link" @click="closeMenu">儀表板</router-link>
-                <button class="nav-btn">登入/註冊</button>
+                <button class="nav-btn" @click="goAuth">登入/註冊</button>
             </div>
         </div>
     </nav>
@@ -26,8 +26,10 @@
 
 <script setup lang="ts">
     import { ref } from 'vue'
+    import { useRouter } from 'vue-router'
 
     const isMenuOpen = ref<boolean>(false)
+    const router = useRouter()
 
     const toggleMenu = (): void => {
         isMenuOpen.value = !isMenuOpen.value
@@ -36,12 +38,20 @@
     const closeMenu = (): void => {
         isMenuOpen.value = false
     }
+
+    const goAuth = (): void => {
+        isMenuOpen.value = false
+        router.push('/login')
+    }
 </script>
 
 <style scoped>
     .navbar {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-        box-shadow: 0 2px 20px rgba(212, 175, 55, 0.3);
+        background: #0f0f0f;
+        box-shadow:
+            0 4px 24px rgba(0, 0, 0, 0.4),
+            0 0 0 1px rgba(212, 175, 55, 0.08) inset,
+            0 8px 32px rgba(212, 175, 55, 0.12);
         position: sticky;
         top: 0;
         z-index: 1000;
@@ -103,7 +113,7 @@
 
     .nav-link {
         text-decoration: none;
-        color: #e5e5e5;
+        color: #c8c8c8;
         font-weight: 600;
         font-size: 1rem;
         transition: all 0.3s;
@@ -143,20 +153,21 @@
 
     .nav-btn {
         padding: 12px 30px;
-        background: linear-gradient(135deg, #d4af37 0%, #aa8c2c 100%);
+        background: linear-gradient(135deg, #d4af37 0%, #b8982d 100%);
         color: #0a0a0a;
         border: 2px solid #d4af37;
-        border-radius: 25px;
+        border-radius: 50px;
         font-weight: 700;
         cursor: pointer;
-        transition: all 0.3s;
-        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+        letter-spacing: 1px;
     }
 
     .nav-btn:hover {
         transform: translateY(-2px);
-        box-shadow: 0 5px 25px rgba(212, 175, 55, 0.6);
-        background: linear-gradient(135deg, #f4d03f 0%, #d4af37 100%);
+        box-shadow: 0 8px 30px rgba(212, 175, 55, 0.5);
+        background: linear-gradient(135deg, #f0c75e 0%, #d4af37 100%);
     }
 
     @media (max-width: 768px) {

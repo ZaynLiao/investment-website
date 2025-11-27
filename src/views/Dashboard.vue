@@ -124,7 +124,7 @@
                             </div>
                             <span class="legend-value">{{ allocation.percentage }}%</span>
                             <span class="legend-amount">{{ formatCurrency(allocationValue(allocation.percentage))
-                                }}</span>
+                            }}</span>
                         </div>
                     </div>
                 </div>
@@ -324,11 +324,11 @@
 
     const assetAllocation = ref<AssetAllocation[]>([
         { type: '台股/美股', percentage: 38, color: '#d4af37' },
-        { type: '全球ETF', percentage: 24, color: '#60a5fa' },
-        { type: '主題基金', percentage: 15, color: '#a855f7' },
-        { type: '債券/票息', percentage: 13, color: '#4ade80' },
-        { type: '現金部位', percentage: 6, color: '#f87171' },
-        { type: '另類投資', percentage: 4, color: '#fbbf24' }
+        { type: '全球ETF', percentage: 24, color: '#22c55e' },
+        { type: '主題基金', percentage: 15, color: '#3b82f6' },
+        { type: '債券/票息', percentage: 13, color: '#10b981' },
+        { type: '現金部位', percentage: 6, color: '#ef4444' },
+        { type: '另類投資', percentage: 4, color: '#a855f7' }
     ])
 
     const portfolioValue = 1250000
@@ -456,27 +456,39 @@
     }
 
     .dashboard-header {
-        background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
-        color: #e5e5e5;
+        background: linear-gradient(180deg, #0f0f0f 0%, #0a0a0a 100%);
+        color: #c8c8c8;
         padding: 80px 50px;
         text-align: center;
-        border-bottom: 2px solid rgba(212, 175, 55, 0.3);
-        box-shadow: 0 10px 50px rgba(212, 175, 55, 0.1);
+        border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        position: relative;
+    }
+
+    .dashboard-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(45deg, transparent 48%, rgba(212, 175, 55, 0.04) 48%, rgba(212, 175, 55, 0.04) 52%, transparent 52%),
+            linear-gradient(-45deg, transparent 48%, rgba(212, 175, 55, 0.04) 48%, rgba(212, 175, 55, 0.04) 52%, transparent 52%);
+        background-size: 35px 35px;
+        pointer-events: none;
     }
 
     .header-content h1 {
-        font-size: 1.25rem;
-        margin-bottom: 15px;
+        font-size: 2.5rem;
+        margin-bottom: 20px;
         color: #d4af37;
         text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
         font-weight: 700;
-        line-height: 1.4;
-        letter-spacing: 1px;
+        line-height: 1.3;
+        letter-spacing: 2px;
     }
 
     .header-content p {
         font-size: 1rem;
-        color: #b0b0b0;
+        color: #9b9b9b;
         line-height: 1.8;
         letter-spacing: 0.5px;
     }
@@ -485,6 +497,8 @@
         width: 100%;
         margin: 0;
         padding: 60px 50px;
+        background: #0a0a0a;
+        position: relative;
     }
 
     .portfolio-summary,
@@ -524,12 +538,70 @@
     }
 
     .summary-card {
-        background: #111;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
         padding: 24px;
-        border-radius: 12px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
-        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 16px;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(212, 175, 55, 0.15),
+            0 0 20px rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(212, 175, 55, 0.4);
         transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .summary-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.015) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.015) 0%, transparent 50%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .summary-card>* {
+        position: relative;
+        z-index: 2;
+    }
+
+    .summary-card::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(circle, rgba(212, 175, 55, 0.08) 0%, transparent 70%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 0;
+    }
+
+    .summary-card::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        border-radius: 16px;
+        padding: 1px;
+        background: linear-gradient(135deg, rgba(212, 175, 55, 0.15), transparent 50%);
+        -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+        mask-composite: exclude;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .summary-card:hover::after {
+        opacity: 1;
     }
 
     .summary-card:hover {
@@ -565,7 +637,7 @@
     .card-value {
         font-size: 1.25rem;
         font-weight: 700;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .card-value.positive {
@@ -581,14 +653,50 @@
     }
 
     .holdings-table {
-        background: #111;
-        border-radius: 12px;
+        background: linear-gradient(135deg, #1a1a1a 0%, #0d0d0d 100%);
+        border-radius: 16px;
         padding: 24px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.6),
+            inset 0 1px 0 rgba(212, 175, 55, 0.15),
+            0 0 20px rgba(212, 175, 55, 0.1);
         overflow-x: auto;
-        border: 1px solid rgba(212, 175, 55, 0.2);
+        border: 1px solid rgba(212, 175, 55, 0.4);
         max-width: 1600px;
         margin: 0 auto;
+        position: relative;
+    }
+
+    .holdings-table::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image:
+            repeating-linear-gradient(0deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            repeating-linear-gradient(90deg, transparent, transparent 35px, rgba(212, 175, 55, 0.02) 35px, rgba(212, 175, 55, 0.02) 36px),
+            radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.015) 0%, transparent 50%),
+            radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.015) 0%, transparent 50%);
+        pointer-events: none;
+        border-radius: 16px;
+        z-index: 0;
+    }
+
+    .holdings-table>* {
+        position: relative;
+        z-index: 1;
+    }
+
+    .holdings-table::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.2), transparent);
     }
 
     table {
@@ -612,7 +720,7 @@
     td {
         padding: 15px;
         border-bottom: 1px solid rgba(212, 175, 55, 0.1);
-        color: #b0b0b0;
+        color: #9b9b9b;
         font-size: 0.9rem;
     }
 
@@ -792,7 +900,7 @@
 
     .legend-label {
         font-size: 0.95rem;
-        color: #e5e5e5;
+        color: #c8c8c8;
         font-weight: 500;
     }
 
@@ -865,7 +973,7 @@
 
     .transaction-name {
         font-weight: 600;
-        color: #e5e5e5;
+        color: #c8c8c8;
         letter-spacing: 0.3px;
         font-size: 0.95rem;
     }
@@ -880,7 +988,7 @@
         display: flex;
         flex-direction: column;
         gap: 5px;
-        color: #b0b0b0;
+        color: #9b9b9b;
         font-size: 0.9rem;
         letter-spacing: 0.3px;
         min-width: 120px;
@@ -948,7 +1056,7 @@
     .metric-value {
         font-size: 1.5rem;
         font-weight: 700;
-        color: #e5e5e5;
+        color: #c8c8c8;
         margin-bottom: 8px;
     }
 
@@ -1022,7 +1130,7 @@
     .watch-name {
         font-size: 1rem;
         font-weight: 600;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .watch-code {
@@ -1177,7 +1285,7 @@
     .alert-title {
         font-size: 1rem;
         font-weight: 600;
-        color: #e5e5e5;
+        color: #c8c8c8;
     }
 
     .alert-time {
@@ -1187,7 +1295,7 @@
 
     .alert-message {
         font-size: 0.9rem;
-        color: #b0b0b0;
+        color: #9b9b9b;
         line-height: 1.6;
         margin-bottom: 8px;
     }
@@ -1313,22 +1421,49 @@
             padding: 18px;
         }
 
-        table { min-width: 700px; }
+        table {
+            min-width: 700px;
+        }
 
         .allocation-content {
             padding: 20px;
             gap: 24px;
         }
 
-        .pie-chart { width: 200px; height: 200px; }
-        .allocation-center { width: 120px; height: 120px; }
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+        }
 
-        .transactions-list { padding: 18px; }
-        .transaction-item { padding: 14px; }
-        .transaction-total { min-width: auto; width: 100%; text-align: left; }
+        .allocation-center {
+            width: 120px;
+            height: 120px;
+        }
 
-        .metrics-grid { gap: 16px; }
-        .watchlist-content { padding: 18px; }
-        .alerts-content { padding: 18px; }
+        .transactions-list {
+            padding: 18px;
+        }
+
+        .transaction-item {
+            padding: 14px;
+        }
+
+        .transaction-total {
+            min-width: auto;
+            width: 100%;
+            text-align: left;
+        }
+
+        .metrics-grid {
+            gap: 16px;
+        }
+
+        .watchlist-content {
+            padding: 18px;
+        }
+
+        .alerts-content {
+            padding: 18px;
+        }
     }
 </style>
