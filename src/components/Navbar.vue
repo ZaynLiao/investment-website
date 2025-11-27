@@ -200,4 +200,24 @@
             font-size: 1.1rem;
         }
     }
+
+    @media (max-width: 480px) {
+        .nav-container {
+            padding: 0 20px;
+            height: 64px;
+        }
+
+        .nav-menu {
+            top: 64px;
+            height: calc(100vh - 64px);
+        }
+
+        .brand-name {
+            font-size: 1.1rem;
+        }
+
+        .nav-link {
+            font-size: 1.05rem;
+        }
+    }
 </style>

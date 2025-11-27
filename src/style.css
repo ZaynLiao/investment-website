@@ -13,6 +13,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* Global resets and responsive helpers */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+img, canvas, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+section {
+  overflow-x: hidden;
+}
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -61,4 +80,11 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+/* Small phones fine-tuning */
+@media (max-width: 480px) {
+  html { font-size: 15px; }
+  h1 { font-size: 2rem; }
+  .card { padding: 1.25em; }
 }

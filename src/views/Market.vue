@@ -2312,4 +2312,29 @@
             border-radius: 10px;
         }
     }
+
+    @media (max-width: 480px) {
+        .market-header { padding: 50px 20px; }
+        .market-overview,
+        .chart-section,
+        .market-news,
+        .market-performance,
+        .market-insights { padding: 30px 20px; }
+
+        .charts-grid { gap: 20px; }
+        .chart-placeholder { height: 180px; min-height: 180px; }
+
+        .section-block { padding: 0 20px 30px; }
+        .section-header { margin: 0 auto 20px; }
+
+        .indices-grid,
+        .flow-grid,
+        .macro-grid,
+        .news-grid,
+        .insights-grid { gap: 20px; }
+
+        .perf-grid { gap: 20px; }
+        .perf-row { grid-template-columns: 26px 1fr 70px 70px; font-size: 0.9rem; }
+        .mini-row { font-size: 0.84rem; }
+    }
 </style>

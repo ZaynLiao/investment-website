@@ -643,4 +643,46 @@
             font-size: 2rem;
         }
     }
+
+    @media (max-width: 480px) {
+        .hero {
+            padding: 60px 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 1.8rem;
+        }
+
+        .hero-content p {
+            font-size: 1rem;
+            margin-bottom: 28px;
+        }
+
+        .hero-buttons {
+            gap: 12px;
+        }
+
+        .features,
+        .popular-products,
+        .cta,
+        .insights,
+        .learning,
+        .stats {
+            padding: 40px 20px;
+        }
+
+        .feature-grid,
+        .product-grid,
+        .insights-content,
+        .learning-steps,
+        .stats-grid {
+            gap: 20px;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            padding: 12px 20px;
+            font-size: 0.95rem;
+        }
+    }
 </style>

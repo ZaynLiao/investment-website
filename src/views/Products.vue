@@ -645,4 +645,23 @@
             padding: 0 30px 40px;
         }
     }
+
+    @media (max-width: 480px) {
+        .filter-container { width: 100%; padding: 20px; gap: 12px; }
+        .filters { gap: 8px; }
+        .products-content { width: 100%; padding: 30px 20px; }
+        .products-container { padding: 20px 0 40px; }
+        .products-grid { gap: 18px; }
+        .product-item { padding: 18px; }
+        .product-header h3 { font-size: 1.1rem; }
+        .product-price .price { font-size: 1.1rem; }
+        .product-price .change { font-size: 0.9rem; }
+        .invest-btn { padding: 10px; font-size: 0.9rem; }
+
+        .category-highlights,
+        .bundle-section,
+        .knowledge-section {
+            padding: 0 20px 30px;
+        }
+    }
 </style>

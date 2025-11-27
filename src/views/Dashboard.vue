@@ -1299,4 +1299,36 @@
             padding: 15px;
         }
     }
+
+    @media (max-width: 480px) {
+        .dashboard-content {
+            padding: 30px 20px;
+        }
+
+        .summary-cards {
+            gap: 20px;
+        }
+
+        .holdings-table {
+            padding: 18px;
+        }
+
+        table { min-width: 700px; }
+
+        .allocation-content {
+            padding: 20px;
+            gap: 24px;
+        }
+
+        .pie-chart { width: 200px; height: 200px; }
+        .allocation-center { width: 120px; height: 120px; }
+
+        .transactions-list { padding: 18px; }
+        .transaction-item { padding: 14px; }
+        .transaction-total { min-width: auto; width: 100%; text-align: left; }
+
+        .metrics-grid { gap: 16px; }
+        .watchlist-content { padding: 18px; }
+        .alerts-content { padding: 18px; }
+    }
 </style>
