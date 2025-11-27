@@ -1,0 +1,7 @@
+{
+  "production_branch": "main",
+  "build": {
+    "command": "npm run build",
+    "output_directory": "dist"
+  }
+}
